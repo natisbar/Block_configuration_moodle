@@ -1,0 +1,419 @@
+{
+    "h5p": {
+        "nameIcon": "hvp",
+        "name": "Recurso H5P",
+        "elementConfiguration": {
+            "id_showdescription":{
+                "name": "id_showdescription",
+                "elementType": "checkbox",
+                "value": false
+            },
+            "id_frame":{
+                "name": "id_frame",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_copyright":{
+                "name": "id_copyright",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_gradepass":{
+                "name": "id_gradepass",
+                "elementType": "input",
+                "value": 0
+            },
+            "id_maximumgrade":{
+                "name": "id_maximumgrade",
+                "elementType": "input",
+                "value": 0
+            },
+            "id_visible":{
+                "name": "id_visible",
+                "elementType": "select",
+                "value": "1"
+            },
+            "id_groupmode":{
+                "name": "id_groupmode",
+                "elementType": "select",
+                "value": "0"
+            },
+            "id_completion":{
+                "name": "id_completion",
+                "elementType": "select",
+                "value": "2"
+            },
+            "id_completionview":{
+                "name": "id_completionview",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_completionusegrade":{
+                "name": "id_completionusegrade",
+                "elementType": "checkbox",
+                "dependent": {
+                    "elementType": "checkbox",
+                    "idElement": "thereIsLearningActivity",
+                    "nameLabel": "Actividad de aprendizaje"
+                }
+            },
+            "id_completionexpected_enabled":{
+                "name": "id_completionexpected_enabled",
+                "elementType": "checkbox",
+                "value": false
+            },
+            "id_competency_rule":{
+                "name": "id_competency_rule",
+                "elementType": "select",
+                "value": "0"
+            }
+        },
+        "elementToHide":{
+            "id_showdescription": "id_showdescription",
+            "id_displayoptions": "id_displayoptions",
+            "id_modstandardgrade": "id_modstandardgrade",
+            "id_modstandardelshdr": "id_modstandardelshdr",
+            "id_availabilityconditionsheader": "id_availabilityconditionsheader",
+            "id_activitycompletionheader": "id_activitycompletionheader",
+            "id_competenciessection": "id_competenciessection",
+            "id_tagshdr": "id_tagshdr"
+        }
+    },
+    "folder":{
+        "nameIcon": "folder",
+        "name": "Recurso Carpeta",
+        "elementConfiguration":{
+            "id_showdescription":{
+                "name": "id_showdescription",
+                "elementType": "checkbox",
+                "value": false
+            },
+            "id_display":{
+                "name": "id_display",
+                "elementType": "select",
+                "value": "0"
+            },
+            "id_showexpanded":{
+                "name": "id_showexpanded",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_showdownloadfolder":{
+                "name": "id_showdownloadfolder",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_forcedownload":{
+                "name": "id_forcedownload",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_visible":{
+                "name": "id_visible",
+                "elementType": "select",
+                "value": "1"
+            },
+            "id_completion":{
+                "name": "id_completion",
+                "elementType": "select",
+                "value": "2"
+            },
+            "id_completionview":{
+                "name": "id_completionview",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_completionexpected_enabled":{
+                "name": "id_completionexpected_enabled",
+                "elementType": "checkbox",
+                "value": false
+            },
+            "id_competency_rule":{
+                "name": "id_competency_rule",
+                "elementType": "select",
+                "value": "0"
+            }
+        },
+        "elementToHide":{
+            "id_showdescription": "id_showdescription",
+            "id_display": "id_display",
+            "id_showexpanded": "id_showexpanded",
+            "id_showdownloadfolder": "id_showdownloadfolder",
+            "id_forcedownload": "id_forcedownload",
+            "id_modstandardelshdr": "id_modstandardelshdr",
+            "id_availabilityconditionsheader": "id_availabilityconditionsheader",
+            "id_activitycompletionheader": "id_activitycompletionheader",
+            "id_competenciessection": "id_competenciessection",
+            "id_tagshdr": "id_tagshdr"
+        }
+    },
+    "quiz":{
+        "nameIcon": "quiz",
+        "name": "Recurso Cuestionario",
+        "elementConfiguration":{
+            "id_showdescription":{
+                "name": "id_showdescription",
+                "elementType": "checkbox",
+                "value": false
+            },
+            "id_timeopen_enabled":{
+                "name": "id_timeopen_enabled",
+                "elementType": "checkbox",
+                "value": false
+            },
+            "id_timeclose_enabled":{
+                "name": "id_timeclose_enabled",
+                "elementType": "checkbox",
+                "value": false
+            },
+            "id_timelimit_enabled":{
+                "name": "id_timelimit_enabled",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_timelimit_number":{
+                "name": "id_timelimit_number",
+                "elementType": "input",
+                "dependent": {
+                    "elementType": "input",
+                    "idElement": "ltiempo",
+                    "nameLabel": "Tiempo(Hr):"
+                }
+            },
+            "id_timelimit_timeunit":{
+                "name": "id_timelimit_timeunit",
+                "elementType": "select",
+                "value": "3600"
+            },
+            "id_overduehandling":{
+                "name": "id_overduehandling",
+                "elementType": "select",
+                "value": "graceperiod"
+            },
+            "id_graceperiod_enabled":{
+                "name": "id_graceperiod_enabled",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_graceperiod_number":{
+                "name": "id_graceperiod_number",
+                "elementType": "input",
+                "value": "5"
+            },
+            "id_graceperiod_timeunit":{
+                "name": "id_graceperiod_timeunit",
+                "elementType": "select",
+                "value": "60"
+            },
+            "id_gradepass":{
+                "name": "id_gradepass",
+                "elementType": "input",
+                "dependent": {
+                    "elementType": "input",
+                    "idElement": "score",
+                    "nameLabel": "Aprueba con: "
+                }
+            },
+            "id_attempts":{
+                "name": "id_attempts",
+                "elementType": "select",
+                "value": "1"
+            },
+            "id_questionsperpage":{
+                "name": "id_questionsperpage",
+                "elementType": "input",
+                "value": "5"
+            },
+            "id_repaginatenow":{
+                "name": "id_repaginatenow",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_shuffleanswers":{
+                "name": "id_shuffleanswers",
+                "elementType": "select",
+                "value": "-1"
+            },
+            "id_preferredbehaviour":{
+                "name": "id_preferredbehaviour",
+                "elementType": "select",
+                "value": "deferredfeedback"
+            },
+            "id_attemptimmediately":{
+                "name": "id_attemptimmediately",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_correctnessimmediately":{
+                "name": "id_correctnessimmediately",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_marksimmediately":{
+                "name": "id_marksimmediately",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_specificfeedbackimmediately":{
+                "name": "id_specificfeedbackimmediately",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_generalfeedbackimmediately":{
+                "name": "id_generalfeedbackimmediately",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_rightanswerimmediately":{
+                "name": "id_rightanswerimmediately",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_overallfeedbackimmediately":{
+                "name": "id_overallfeedbackimmediately",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_attemptopen":{
+                "name": "id_attemptopen",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_correctnessopen":{
+                "name": "id_correctnessopen",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_marksopen":{
+                "name": "id_marksopen",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_specificfeedbackopen":{
+                "name": "id_specificfeedbackopen",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_generalfeedbackopen":{
+                "name": "id_generalfeedbackopen",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_rightansweropen":{
+                "name": "id_rightansweropen",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_overallfeedbackopen":{
+                "name": "id_overallfeedbackopen",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_showuserpicture":{
+                "name": "id_showuserpicture",
+                "elementType": "select",
+                "value": "0"
+            },
+            "id_decimalpoints":{
+                "name": "id_decimalpoints",
+                "elementType": "select",
+                "value": "2"
+            },
+            "id_questiondecimalpoints":{
+                "name": "id_questiondecimalpoints",
+                "elementType": "select",
+                "value": "-1"
+            },
+            "id_seb_requiresafeexambrowser":{
+                "name": "id_seb_requiresafeexambrowser",
+                "elementType": "select",
+                "value": "0"
+            },
+            "id_visible":{
+                "name": "id_visible",
+                "elementType": "select",
+                "value": "1"
+            },
+            "id_groupmode":{
+                "name": "id_groupmode",
+                "elementType": "select",
+                "value": "0"
+            },
+            "id_completion":{
+                "name": "id_completion",
+                "elementType": "select",
+                "value": "2"
+            },
+            "id_completionview":{
+                "name": "id_completionview",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_completionusegrade":{
+                "name": "id_completionusegrade",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_completionpass":{
+                "name": "id_completionpass",
+                "elementType": "checkbox",
+                "value": true
+            },  
+            "id_completionattemptsexhausted":{
+                "name": "id_completionattemptsexhausted",
+                "elementType": "checkbox",
+                "value": false
+            },
+            "id_completionminattemptsenabled":{
+                "name": "id_completionminattemptsenabled",
+                "elementType": "checkbox",
+                "value": false
+            },
+            "id_completionexpected_enabled":{
+                "name": "id_completionexpected_enabled",
+                "elementType": "checkbox",
+                "value": false
+            },
+            "id_competency_rule":{
+                "name": "id_competency_rule",
+                "elementType": "select",
+                "value": "0"
+            }
+        },
+        "elementToHide":{
+            "id_showdescription": "id_showdescription",
+            "id_timing": "id_timing",
+            "id_modstandardgrade": "id_modstandardgrade",
+            "id_layouthdr": "id_layouthdr",
+            "id_interactionhdr": "id_interactionhdr",
+            "id_reviewoptionshdr": "id_reviewoptionshdr",
+            "id_display": "id_display",
+            "id_seb": "id_seb",
+            "id_security": "id_security",
+            "id_overallfeedbackhdr": "id_overallfeedbackhdr",
+            "id_modstandardelshdr": "id_modstandardelshdr",
+            "id_availabilityconditionsheader": "id_availabilityconditionsheader",
+            "id_activitycompletionheader": "id_activitycompletionheader",
+            "id_competenciessection": "id_competenciessection",
+            "id_tagshdr": "id_tagshdr"
+        }
+    },
+    "blockElementsId":{
+        "main": {
+            "select": "resourceSelect",
+            "buttonResourceUnlock": "resourceUnlock",
+            "buttonResourceConfig": "resourceConfig",
+            "blockSpecificElementsId": "blockSpecificElements"
+        },
+        "h5p": {
+            "checkboxLearningActivity": "learningActivity"
+        },
+        "quiz": {
+            "inputScore": "score",
+            "inputLtime": "ltime"
+        },
+        "completionCourse": {
+            "inputScoreEndingCompletion": "scoreEndingCompletion"
+        }        
+    }
+}

@@ -1,0 +1,92 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="http://localhost/testCode/styleConfigAuto.css">
+    <script src="http://localhost/testCode/Clases/Configuration.js"></script>
+    <script src="http://localhost/testCode/Clases/Identification.js"></script>
+    <script src="http://localhost/testCode/Clases/Resource.js"></script>
+    <script src="http://localhost/testCode/Clases/Message.js"></script>
+</head>
+
+<style>
+</style>
+
+<div class="centerDiv">
+    <select class="select-css" id="resourceSelect" style="display: none;">
+        <option value="0" selected>--Elija una opción--</option>
+    </select>
+</div>
+
+<div id="blockSpecificElements"></div>
+    
+<div class="centerDiv">
+    <button class="btnConfigResource" id="resourceUnlock" style="display: none;" onclick="unlockResource()">Desbloquear</button>
+</div>
+<div class="centerDiv">
+    <button class="btnConfigResource" id="resourceConfig" style="display: none;" onclick="initSetup()">Configurar</button>
+</div>
+<div class="centerDiv">
+    <button class="btnConfigResource" id="showConfigurationItems" style="display: none;" onclick="callHidden()">Mostrar</button>
+</div>
+
+<div id="message" style="margin-top: 3%;"></div>
+    
+
+<script>
+    const TEXT_BUTTON_SHOW = "Mostrar";
+    const TEXT_BUTTON_HIDE = "Ocultar";
+    const URL_CONFIGURATION_JSON = "http://localhost/testCode/Clases/configuration.json";
+    var contador = 0;
+    var dataObj = {};
+    var configurationJson;
+    var identification = new Identification();
+    var configuration;
+
+    //Ocultar elementos de configuración
+    window.addEventListener("load", async function() {
+        if((identification.currentUrlIsValid(COMPLETION_COURSE) || identification.currentUrlIsValid(RESOURCE_IN_EDITION))){
+            configurationJson = await searchConfiguration();
+            callObjConfiguration();
+        }
+    });
+
+    function callObjConfiguration(){
+        setTimeout(() => {
+            configuration = new Configuration(configurationJson);
+        }, 1000);
+    }
+
+    async function searchConfiguration(){
+        let dataResponse;
+        await fetch(URL_CONFIGURATION_JSON)
+            .then(response => {
+                return response.json();
+            })
+            .then(jsondata => {
+                dataResponse = jsondata;
+            }
+        );
+        return dataResponse;
+    }
+
+    // Función para alternar el texto del botón de mostrar y ocultar
+    function callHidden(){
+        contador = configuration.resourceElementsHidden(contador);
+        if(contador%2==0){
+            document.getElementById(ID_SHOW_CONFIGURATION_ITEMS).innerText = TEXT_BUTTON_SHOW;
+        }
+        else{
+            document.getElementById(ID_SHOW_CONFIGURATION_ITEMS).innerText = TEXT_BUTTON_HIDE;
+        }
+    }
+
+    // Configuración del recurso
+    function initSetup(){
+        configuration.runSetup();
+    }
+
+    function unlockResource(){
+        configuration.clickButton(ID_UNLOCK_COMPLETION_RESOURCE);
+    }
+
+</script>
+
+
