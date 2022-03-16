@@ -14,6 +14,7 @@ El JSON está estructurado como un tipo de dato objeto, de la siguiente manera:
  - elementConfiguration son todos esos ID de los elementos de configuración con los que cuenta el recurso y que ustede desea manipular. Aquí es necesario definir el name, el tipo de elemento (select, checkbox, input) y el valor que desea que tenga.
  - elementToHide son todos los ID que agrupan los elementos de configuración, y que ud desea ocultar para el rol docente.
 
+```
 "h5p": {
         "nameIcon": "hvp",
         "name": "Recurso H5P",
@@ -38,5 +39,5 @@ El JSON está estructurado como un tipo de dato objeto, de la siguiente manera:
             "id_displayoptions": "id_displayoptions",
         }
     },
-
+```
 
