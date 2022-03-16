@@ -1,6 +1,6 @@
 # Block_configuration_moodle
 
-### **Tested on Moodle 3.10.9
+### **Tested on Moodle 3.10.9**
 ### **Support this development 🤝 [Paypal](https://www.paypal.com/paypalme/natisbar)**
 
 ### [ENGLISH]
@@ -91,6 +91,7 @@ input#id_forcedownload
     display: none;
 }
 ```
+#### *If you have any difficulties, you can indicate me to support you.*
 
 
 ### [SPANISH]
@@ -116,7 +117,4 @@ Actualmente se han incorporado 4 tipos de actividades o recursos: H5P, Folder, Q
 3. En course/modedit.php, debajo de la linea "echo $OUTPUT->header();" incorpore la siguiente fragmento de código, esto expondrá el rol del usuario, haciendolo accesible desde el front
 4. Si quiere que los elementos de configuración de las actividades o recursos, estén ocultos rapidamente, incorpore lo siguiente en la plantilla de estilos de moodle.
 
-
-
-### *If you have any difficulties, you can indicate me to support you.*
-
+#### *Si tienen alguna dificultad, pueden indicarme y miramos de que manera puedo apoyarlos.*
