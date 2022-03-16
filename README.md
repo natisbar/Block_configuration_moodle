@@ -7,7 +7,7 @@
 
 The purpose of this development is to establish a previous configuration for each resource through a JSON file. So that teachers or people who are not very familiar with the configuration of resources, can configure them with one click.
 
-The block can identify what type of resource it is on, and build the necessary elements for configuration, which I call dependent elements:
+The block can identify which type of resource it is on, and build the necessary elements for configuration, which I call dependent elements:
 
 ![alt text](https://github.com/natisbar/Block_configuration_moodle/blob/master/Image/block_configuration.png?raw=true)
 
@@ -16,7 +16,7 @@ The JSON is structured as an object data type, as follows:
 2. Within this it is necessary to define 4 values: nameIcon, name, elementConfiguration and elementToHide. 
   - nameIcon, is the name of the resource icon in moodle.
   - name is the name that will appear in the select of "identification resource"
-  - elementConfiguration are all the IDs of the configuration elements that the resource has and that you want to manipulate. Here you need to define the name, the element type (select, checkbox, input) and the value you want it to take. Optionally, you can replace value by dependent, in this way it indicates that this specific element depends on another, and it is necessary to indicate the values for elementType, idElement, nameLabel of it.
+  - elementConfiguration are all the IDs of the configuration elements that the resource has and that you want to manipulate. Here you need to define the name, the element type (select, checkbox, input) and the value you want it to have. Optionally, you can replace value by dependent, this way it indicates that this specific element depends on another, and it is necessary to indicate the values for elementType, idElement, nameLabel of it.
   - elementToHide are all the IDs that group the configuration elements, and that you want to hide for the teacher role.
 
 ```
@@ -100,7 +100,7 @@ Este desarrollo, tiene como finalidad establecer una configuración previa para 
 
 El bloque es capaz de identificar en que tipo de recurso está, y construir los elementos necesarios para la configuración, los cuales llamo elementos dependientes (Ver imagen de la sección en ingles).
 
-El JSON está estructurado como un tipo de dato objeto, de la siguiente manera:
+El JSON está estructurado como un tipo de dato objeto, de la siguiente manera (ver JSON de la sección en ingles):
 1. Primero se define el nombre del recurso.
 2. Dentro de este es necesario definir 4 valores: nameIcon, name, elementConfiguration y elementToHide. Donde:
  - nameIcon, es el nombre del icono del recurso en moodle.
@@ -114,7 +114,7 @@ Actualmente se han incorporado 4 tipos de actividades o recursos: H5P, Folder, Q
 
 1. Cree un bloque HTML e incorpore en este la información del [Index.html](https://github.com/natisbar/Block_configuration_moodle/blob/master/index.html). Recuerde cambiar las url de los estilos, de los scripts y del fichero JSON.
 2. Configure el bloque. Asegurese de que sea visible en todos los espacios del curso y que no sea visible para los estudiantes.
-3. En course/modedit.php, debajo de la linea "echo $OUTPUT->header();" incorpore la siguiente fragmento de código, esto expondrá el rol del usuario, haciendolo accesible desde el front
-4. Si quiere que los elementos de configuración de las actividades o recursos, estén ocultos rapidamente, incorpore lo siguiente en la plantilla de estilos de moodle.
+3. En course/modedit.php, debajo de la linea "echo $OUTPUT->header();" incorpore la siguiente fragmento de código, esto expondrá el rol del usuario, haciendolo accesible desde el front (ver fragmento de código ubicado en la sección en ingles).
+4. Si quiere que los elementos de configuración de las actividades o recursos, estén ocultos rapidamente, incorpore lo siguiente en la plantilla de estilos de moodle (ver estilos ubicados en la sección en ingles).
 
 #### *Si tienen alguna dificultad, pueden indicarme y miramos de que manera puedo apoyarlos.*
