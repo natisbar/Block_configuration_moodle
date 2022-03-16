@@ -1,6 +1,8 @@
 # Block_configuration_moodle
 
-**Support this software [Paypal](https://www.paypal.com/paypalme/natisbar)**
+## **Support this software [🤝Paypal](https://www.paypal.com/paypalme/natisbar)**
+
+
 
 Este desarrollo, tiene como finalidad establecer una configuración previa para cada recurso a través de un fichero JSON. De modo que los docentes o personas que no están muy familiarizadas con el tema de configuración de los recursos, puedan configurarlos a un clic.
 
