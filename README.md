@@ -6,4 +6,37 @@ El bloque es capaz de identificar en que tipo de recurso está, y construir los 
 
 ![alt text](https://github.com/natisbar/Block_configuration_moodle/blob/master/Image/block_configuration.png?raw=true)
 
+El JSON está estructurado como un tipo de dato objeto, de la siguiente manera:
+1. Primero se define el nombre del recurso.
+2. Dentro de este es necesario definir 4 valores: nameIcon, name, elementConfiguration y elementToHide. Donde:
+- nameIcon, es el nombre del icono del recurso en moodle.
+- name es el nombre que aparezca en el select de "identification resource"
+- elementConfiguration son todos esos ID de los elementos de configuración con los que cuenta el recurso. Aquí es necesario definir el name, el tipo de elemento (select, checkbox, input) y el valor que desea que tenga.
+- elementToHide son todos los ID que agrupan los elementos de configuración, y que ud desea ocultar para el rol docente.
+
+"h5p": {
+        "nameIcon": "hvp",
+        "name": "Recurso H5P",
+        "elementConfiguration": {
+            "id_showdescription":{
+                "name": "id_showdescription",
+                "elementType": "checkbox",
+                "value": false
+            },
+            "id_completionusegrade":{
+                "name": "id_completionusegrade",
+                "elementType": "checkbox",
+                "dependent": {
+                    "elementType": "checkbox",
+                    "idElement": "thereIsLearningActivity",
+                    "nameLabel": "Actividad de aprendizaje"
+                }
+            }
+        },
+        "elementToHide":{
+            "id_showdescription": "id_showdescription",
+            "id_displayoptions": "id_displayoptions",
+        }
+    },
+
 
