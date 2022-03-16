@@ -482,17 +482,9 @@
             "select": "resourceSelect",
             "buttonResourceUnlock": "resourceUnlock",
             "buttonResourceConfig": "resourceConfig",
-            "blockSpecificElementsId": "blockSpecificElements"
-        },
-        "h5p": {
-            "checkboxLearningActivity": "learningActivity"
-        },
-        "quiz": {
-            "inputScore": "score",
-            "inputLtime": "ltime"
-        },
-        "completionCourse": {
-            "inputScoreEndingCompletion": "scoreEndingCompletion"
-        }        
+            "buttonShowConfigurationItems": "showConfigurationItems",
+            "blockSpecificElementsId": "blockSpecificElements",
+            "message": "message"
+        }   
     }
 }

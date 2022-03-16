@@ -6,7 +6,6 @@ const TEXT_BUTTON_HIDE = "Ocultar";
 const ID_UNLOCK_COMPLETION_RESOURCE = "id_unlockcompletion";
 const ID_UNLOCK_COMPLETION_COURSE = "id_settingsunlock";
 const ID_EXPOSED_DATA = "dataMsnDinamic";
-const ID_SHOW_CONFIGURATION_ITEMS = "showConfigurationItems";
 
 
 class Configuration{
@@ -34,7 +33,7 @@ class Configuration{
         this.folderResource = new Resource(this.dataConfiguration.folder, this.blockElementsId, this.resourceName);
         this.quizResource = new Resource(this.dataConfiguration.quiz, this.blockElementsId, this.resourceName);
         this.pageResource = new Resource(this.dataConfiguration.page, this.blockElementsId, this.resourceName);
-        
+
         this.allObjectResource = [this.h5pResource, this.folderResource, this.quizResource, this.pageResource];
         this.takeMyResourseCurrent();
         this.runChangeState();
@@ -59,10 +58,10 @@ class Configuration{
         let countValueCurrent = this.contador;
         this.contador = this.visibility.changeStateOfResourceElements(this.contador, this.resourceCurrent);
         if(this.contador % 2 == 0){
-            document.getElementById(ID_SHOW_CONFIGURATION_ITEMS).innerText = TEXT_BUTTON_HIDE;
+            document.getElementById(this.blockElementsId.buttonShowConfigurationItems).innerText = TEXT_BUTTON_HIDE;
         }
         else{
-            document.getElementById(ID_SHOW_CONFIGURATION_ITEMS).innerText = TEXT_BUTTON_SHOW;
+            document.getElementById(this.blockElementsId.buttonShowConfigurationItems).innerText = TEXT_BUTTON_SHOW;
         }
         if(countValueCurrent != this.contador){
             this.configuration.select(this.blockElementsId.select, this.resourceCurrent.nameIcon);
