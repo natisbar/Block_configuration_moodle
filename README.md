@@ -1,8 +1,9 @@
 # Block_configuration_moodle
 
-### **Support this software [🤝Paypal](https://www.paypal.com/paypalme/natisbar)**
+### **Support this development 🤝 [Paypal](https://www.paypal.com/paypalme/natisbar)**
 
-[ENGLISH]
+###[ENGLISH]
+
 The purpose of this development is to establish a previous configuration for each resource through a JSON file. So that teachers or people who are not very familiar with the configuration of resources, can configure them with one click.
 
 The block can identify what type of resource it is on, and build the necessary elements for configuration, which I call dependent elements:
@@ -91,13 +92,11 @@ input#id_forcedownload
 ```
 
 
-[SPANISH]
+###[SPANISH]
 
 Este desarrollo, tiene como finalidad establecer una configuración previa para cada recurso a través de un fichero JSON. De modo que los docentes o personas que no están muy familiarizadas con el tema de configuración de los recursos, puedan configurarlos a un clic.
 
-El bloque es capaz de identificar en que tipo de recurso está, y construir los elementos necesarios para la configuración, los cuales llamo elementos dependientes:
-
-![alt text](https://github.com/natisbar/Block_configuration_moodle/blob/master/Image/block_configuration.png?raw=true)
+El bloque es capaz de identificar en que tipo de recurso está, y construir los elementos necesarios para la configuración, los cuales llamo elementos dependientes (Ver imagen de la sección en ingles).
 
 El JSON está estructurado como un tipo de dato objeto, de la siguiente manera:
 1. Primero se define el nombre del recurso.
