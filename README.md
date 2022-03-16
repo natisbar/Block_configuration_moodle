@@ -1,8 +1,9 @@
 # Block_configuration_moodle
 
+### **Tested on Moodle 3.10.9
 ### **Support this development 🤝 [Paypal](https://www.paypal.com/paypalme/natisbar)**
 
-###[ENGLISH]
+### [ENGLISH]
 
 The purpose of this development is to establish a previous configuration for each resource through a JSON file. So that teachers or people who are not very familiar with the configuration of resources, can configure them with one click.
 
@@ -47,7 +48,7 @@ The JSON is structured as an object data type, as follows:
 
 Currently 4 types of activities or resources have been incorporated: H5P, Folder, Quiz, Page... but you could continue incorporating more, as long as you add the necessary information to the JSON, and define the object in the constructor of the Configuration class, and incorporate it into the array of instantiated resources.
 
-###Incorporation process
+### Incorporation process
 
 1. Create an HTML block and embed the information from [Index.html](https://github.com/natisbar/Block_configuration_moodle/blob/master/index.html) into it. Remember to change the url of the styles, the scripts and the JSON file.
 2. Configure the block. Make sure it is visible in all course spaces and not visible to students.
@@ -92,7 +93,7 @@ input#id_forcedownload
 ```
 
 
-###[SPANISH]
+### [SPANISH]
 
 Este desarrollo, tiene como finalidad establecer una configuración previa para cada recurso a través de un fichero JSON. De modo que los docentes o personas que no están muy familiarizadas con el tema de configuración de los recursos, puedan configurarlos a un clic.
 
@@ -114,4 +115,8 @@ Actualmente se han incorporado 4 tipos de actividades o recursos: H5P, Folder, Q
 2. Configure el bloque. Asegurese de que sea visible en todos los espacios del curso y que no sea visible para los estudiantes.
 3. En course/modedit.php, debajo de la linea "echo $OUTPUT->header();" incorpore la siguiente fragmento de código, esto expondrá el rol del usuario, haciendolo accesible desde el front
 4. Si quiere que los elementos de configuración de las actividades o recursos, estén ocultos rapidamente, incorpore lo siguiente en la plantilla de estilos de moodle.
+
+
+
+### *If you have any difficulties, you can indicate me to support you.*
 
