@@ -1,6 +1,6 @@
 # Block_configuration_moodle
 
-## **Support this software [🤝Paypal](https://www.paypal.com/paypalme/natisbar)**
+#### **Support this software [🤝Paypal](https://www.paypal.com/paypalme/natisbar)**
 
 
 
@@ -71,25 +71,4 @@ Proceso de incorporación.
    echo ("<div id=\"dataMsnDinamic\" style=\"display:none\">{\"roles\":\"".$rolFinal."\"}</div>");
 ```
 
-4. Si quiere que los elementos de configuración de las actividades o recursos, estén ocultos rapidamente. Vaya a la plantilla de estilos de moodle, e incorpore esto.
-```
-/**Ocultar elementos de configuración de los mod**/
-body#page-mod-page-mod fieldset#id_activitycompletionheader, fieldset#id_competenciessection,
-fieldset#id_modstandardelshdr,
-fieldset#id_appearancehdr,
-fieldset#id_displayoptions,
-fieldset#id_modstandardgrade,
-fieldset#id_availabilityconditionsheader,
-fieldset#id_activitycompletionheader,
-fieldset#id_display,
-fieldset#id_options,
-fieldset#id_options,
-input#id_showdescription,
-div#fitem_id_display,
-input#id_showexpanded,
-input#id_showdownloadfolder,
-input#id_forcedownload
-{
-    display: none;
-}
-```
+4. Si quiere que los elementos de configuración de las actividades o recursos, estén ocultos rapida
