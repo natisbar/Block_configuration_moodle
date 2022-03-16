@@ -4,6 +4,9 @@
     <script src="http://localhost/testCode/Clases/Identification.js"></script>
     <script src="http://localhost/testCode/Clases/Resource.js"></script>
     <script src="http://localhost/testCode/Clases/Message.js"></script>
+    <script src="http://localhost/testCode/Clases/Visibility.js"></script>
+    <script src="http://localhost/testCode/Clases/Validation.js"></script>
+    <script src="http://localhost/testCode/Clases/CustomError.js"></script>
 </head>
 
 <style>
@@ -30,15 +33,14 @@
 <div id="message" style="margin-top: 3%;"></div>
     
 
+
+
 <script>
-    const TEXT_BUTTON_SHOW = "Mostrar";
-    const TEXT_BUTTON_HIDE = "Ocultar";
     const URL_CONFIGURATION_JSON = "http://localhost/testCode/Clases/configuration.json";
-    var contador = 0;
     var dataObj = {};
     var configurationJson;
     var identification = new Identification();
-    var configuration;
+    var     configuration;
 
     //Ocultar elementos de configuración
     window.addEventListener("load", async function() {
@@ -69,13 +71,7 @@
 
     // Función para alternar el texto del botón de mostrar y ocultar
     function callHidden(){
-        contador = configuration.resourceElementsHidden(contador);
-        if(contador%2==0){
-            document.getElementById(ID_SHOW_CONFIGURATION_ITEMS).innerText = TEXT_BUTTON_SHOW;
-        }
-        else{
-            document.getElementById(ID_SHOW_CONFIGURATION_ITEMS).innerText = TEXT_BUTTON_HIDE;
-        }
+        configuration.runChangeState();
     }
 
     // Configuración del recurso

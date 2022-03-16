@@ -171,19 +171,23 @@
                 "elementType": "checkbox",
                 "value": true
             },
+            "id_timelimit_timeunit":{
+                "name": "id_timelimit_timeunit",
+                "elementType": "select",
+                "dependent": {
+                    "elementType": "select",
+                    "idElement": "unid",
+                    "nameLabel": "Unidades(t):"
+                }
+            },
             "id_timelimit_number":{
                 "name": "id_timelimit_number",
                 "elementType": "input",
                 "dependent": {
                     "elementType": "input",
                     "idElement": "ltiempo",
-                    "nameLabel": "Tiempo(Hr):"
+                    "nameLabel": "Tiempo(#):"
                 }
-            },
-            "id_timelimit_timeunit":{
-                "name": "id_timelimit_timeunit",
-                "elementType": "select",
-                "value": "3600"
             },
             "id_overduehandling":{
                 "name": "id_overduehandling",
@@ -392,6 +396,81 @@
             "id_security": "id_security",
             "id_overallfeedbackhdr": "id_overallfeedbackhdr",
             "id_modstandardelshdr": "id_modstandardelshdr",
+            "id_availabilityconditionsheader": "id_availabilityconditionsheader",
+            "id_activitycompletionheader": "id_activitycompletionheader",
+            "id_competenciessection": "id_competenciessection",
+            "id_tagshdr": "id_tagshdr"
+        }
+    },
+    "page":{
+        "nameIcon": "page",
+        "name": "Recurso Página",
+        "elementConfiguration":{
+            "id_showdescription":{
+                "name": "id_showdescription",
+                "elementType": "checkbox",
+                "value": false
+            },
+            "id_display":{
+                "name": "id_display",
+                "elementType": "select",
+                "value": "6"
+            },
+            "id_popupwidth":{
+                "name": "id_popupwidth",
+                "elementType": "input",
+                "value": 1000
+            },
+            "id_popupheight":{
+                "name": "id_popupheight",
+                "elementType": "input",
+                "value": 700
+            },
+            "id_printheading":{
+                "name": "id_printheading",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_printintro":{
+                "name": "id_printintro",
+                "elementType": "checkbox",
+                "value": false
+            },
+            "id_printlastmodified":{
+                "name": "id_printlastmodified",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_visible":{
+                "name": "id_visible",
+                "elementType": "select",
+                "value": "1"
+            },
+            "id_completion":{
+                "name": "id_completion",
+                "elementType": "select",
+                "value": "2"
+            },
+            "id_completionview":{
+                "name": "id_completionview",
+                "elementType": "checkbox",
+                "value": true
+            },
+            "id_completionexpected_enabled":{
+                "name": "id_completionexpected_enabled",
+                "elementType": "checkbox",
+                "value": false
+            },
+            "id_competency_rule":{
+                "name": "id_competency_rule",
+                "elementType": "select",
+                "value": "0"
+            }
+        },
+        "elementToHide":{
+            "id_showdescription": "id_showdescription",
+            "id_display": "id_appearancehdr",
+            "id_showexpanded": "id_modstandardelshdr",
             "id_availabilityconditionsheader": "id_availabilityconditionsheader",
             "id_activitycompletionheader": "id_activitycompletionheader",
             "id_competenciessection": "id_competenciessection",

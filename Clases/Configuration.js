@@ -1,176 +1,90 @@
 const SHOW_IN_BLOCK = 'block';
 const SHOW_IN_FLEX = 'flex';
 const HIDDEN =  'none'; 
-const ID_DESCRIPTION_RESOURCE = "id_showdescription";
+const TEXT_BUTTON_SHOW = "Mostrar";
+const TEXT_BUTTON_HIDE = "Ocultar";
 const ID_UNLOCK_COMPLETION_RESOURCE = "id_unlockcompletion";
 const ID_UNLOCK_COMPLETION_COURSE = "id_settingsunlock";
 const ID_EXPOSED_DATA = "dataMsnDinamic";
 const ID_SHOW_CONFIGURATION_ITEMS = "showConfigurationItems";
-const MESSAGE_RESOURCE_NO_VALID = "El recurso actual no es abarcado en este bloque. Incorporelo o comuniquese con su administrador";
-const MESSAGE_INPUT_EMPTY = "Ninguna de las entradas puede estar vacia. Ingrese los valores necesarios";
-const ID_ERROR_GRADEPASS = "id_error_gradepass";
-const ID_ERROR_COMPLETION = "fgroup_id_error_completionpassgroup";
-const MESSAGE_ERROR_COMPLETION = "Este cuestionario no tiene configurada una calificación aprobatoria. Por favor definala";
-const SITUATION = ["success", "warning", "danger"];
+
 
 class Configuration{
     contador = 0;
     dataConfiguration;
     identification = new Identification();
+    validation = new Validation();
+    unlockCompletionResourceExist = this.identification.unlockCompletionExist(ID_UNLOCK_COMPLETION_RESOURCE);
+    unlockCompletionCourseExist = this.identification.unlockCompletionExist(ID_UNLOCK_COMPLETION_COURSE);
+    isTeacher = this.identification.rolTeacherIdentification(ID_EXPOSED_DATA);
+    visibility;
+    resourceName;
     h5pResource;
     folderResource;
     quizResource;
     allObjectResource;
     blockElementsId;
-    message = new Message();
     
     constructor(dataConfiguration){
+        this.resourceName = this.identification.resourceIdentification();
         this.dataConfiguration = dataConfiguration;
         this.blockElementsId = this.dataConfiguration.blockElementsId.main;
-        this.h5pResource = new Resource(this.dataConfiguration.h5p, this.blockElementsId);
-        this.folderResource = new Resource(this.dataConfiguration.folder, this.blockElementsId);
-        this.quizResource = new Resource(this.dataConfiguration.quiz, this.blockElementsId);
-        this.allObjectResource = [this.h5pResource, this.folderResource, this.quizResource];
-        this.resourceElementsHidden(contador);
-    }
-
-    resourceElementsHidden(contador) {
-        let resourceName = this.identification.resourceIdentification();
-        if(this.validateResource(resourceName)){
-            contador++;
-            this.elementsBlockVisibility(resourceName);
-            let state = HIDDEN;
-            let stateOther = HIDDEN;
-            if(resourceName != 'completion'){
-                if(document.getElementById(ID_DESCRIPTION_RESOURCE).getAttribute("style") == null || 
-                document.getElementById(ID_DESCRIPTION_RESOURCE).getAttribute("style") == "display: block;"){
-                    state = HIDDEN;
-                    stateOther = HIDDEN;
-                }
-                else {
-                    state = SHOW_IN_BLOCK;
-                    stateOther = SHOW_IN_FLEX;
-                }
-            }   
-            
-            this.allObjectResource.forEach(objeto => {
-                if (objeto.nameIcon == resourceName){
-                    objeto.visibilityElements(state);
-                }
-            });
-        }
-        else{
-            this.message.setMessageAndBuild(MESSAGE_RESOURCE_NO_VALID, SITUATION[2]);
-        }
-        return contador;
+        this.visibility = new Visibility(this.blockElementsId, this.unlockCompletionResourceExist, this.unlockCompletionCourseExist, this.isTeacher);
+        this.h5pResource = new Resource(this.dataConfiguration.h5p, this.blockElementsId, this.resourceName);
+        this.folderResource = new Resource(this.dataConfiguration.folder, this.blockElementsId, this.resourceName);
+        this.quizResource = new Resource(this.dataConfiguration.quiz, this.blockElementsId, this.resourceName);
+        this.pageResource = new Resource(this.dataConfiguration.page, this.blockElementsId, this.resourceName);
         
+        this.allObjectResource = [this.h5pResource, this.folderResource, this.quizResource, this.pageResource];
+        this.takeMyResourseCurrent();
+        this.runChangeState();
+        this.runVisibilityBlockElements();
     }
 
-    elementsBlockVisibility(resourceName){
-        if(resourceName != null && resourceName != "completion"){
-            document.getElementById(this.blockElementsId.select).style.display = SHOW_IN_BLOCK;
-            this.allObjectResource.forEach(objeto => {
-                if (objeto.nameIcon == resourceName){
-                    this.configuration.select(this.blockElementsId.select, resourceName);
-                    if(objeto.elementDependentId.length>0){
-                        objeto.elementDependentId.forEach(element => {
-                            let value = $("#"+element.name).val();
-                            $("#"+element.dependent.idElement).show();
-                            $("#"+element.dependent.idElement+"Input").val(value);
-                        });
-                    }
-                }
-            });
-
-            if (this.identification.unlockCompletionExist(ID_UNLOCK_COMPLETION_RESOURCE)) {
-                document.getElementById(this.blockElementsId.buttonResourceUnlock).style.display = SHOW_IN_BLOCK;
-            }
-            else document.getElementById(this.blockElementsId.buttonResourceConfig).style.display = SHOW_IN_FLEX;
-
-            if (!this.identification.rolIdentification(ID_EXPOSED_DATA)){
-                var showItems = document.getElementById(ID_SHOW_CONFIGURATION_ITEMS);
-                showItems.style.display = SHOW_IN_BLOCK;
-            }
-
-            if (document.getElementById(ID_ERROR_GRADEPASS) && document.getElementById(ID_ERROR_GRADEPASS).innerText.indexOf("\n")<0){
-                this.message.setMessageAndBuild(document.getElementById(ID_ERROR_GRADEPASS).innerText, SITUATION[2]);
-            }
-
-            if (document.getElementById(ID_ERROR_COMPLETION) && document.getElementById(ID_ERROR_COMPLETION).innerText.indexOf("\n")<0){
-                this.message.setMessageAndBuild(MESSAGE_ERROR_COMPLETION, SITUATION[2]);
-            }
-
-        }
-
-        // Se valida si se está en Finalización del curso
-        else if (resourceName == "completion"){
-            setConfig.select(this.blockElementsId.select,"5");
-            $("#scoreEndingCompletion").show();
-
-            if (unlockCompletionExist(ID_UNLOCK_COMPLETION_COURSE)) {
-                document.getElementById(this.blockElementsId.buttonResourceUnlock).style.display = SHOW_IN_BLOCK;
-            }
-            else document.getElementById(this.blockElementsId.buttonResourceConfig).style.display = SHOW_IN_FLEX;
-        }
-        else{
-            document.getElementById(this.blockElementsId.select).style.display = HIDDEN;
-            document.getElementById(this.blockElementsId.buttonResourceConfig).style.display = HIDDEN;
-        }
-        return resourceName;
-    }
-
-    //Se valida que se esté en un recurso válido
-    validateResource(resourceName){
-        let validResource = false;
+    takeMyResourseCurrent(){
         this.allObjectResource.forEach(objeto => {
-            if (objeto.nameIcon == resourceName){
-                validResource = true;
+            if (objeto.nameIcon == this.resourceName){
+                this.resourceCurrent = objeto;
             }
         });
-        return validResource;
+        this.validation.validateResource(this.resourceCurrent);
     }
 
-    validateInputDependent(resource){
-        let inputEmpty = false;
-        let count = 0;
-        if(resource.elementDependentId.length>0){
-            resource.elementDependentId.forEach(element => {  
-                if ($("#"+element.dependent.idElement+"Input").val() != "on" && $("#"+element.dependent.idElement+"Input").val().length > 0){
-                    count++;
-                }
-            });
-            if (count == resource.elementDependentId.length) {
-                inputEmpty = true;
-            }
+    runVisibilityBlockElements(){
+        this.visibility.makeBlockElementsVisible(this.resourceCurrent);
+        this.validation.validateMoodleErrorReport();
+    }
+
+    runChangeState(){
+        let countValueCurrent = this.contador;
+        this.contador = this.visibility.changeStateOfResourceElements(this.contador, this.resourceCurrent);
+        if(this.contador % 2 == 0){
+            document.getElementById(ID_SHOW_CONFIGURATION_ITEMS).innerText = TEXT_BUTTON_HIDE;
         }
-        return inputEmpty;
+        else{
+            document.getElementById(ID_SHOW_CONFIGURATION_ITEMS).innerText = TEXT_BUTTON_SHOW;
+        }
+        if(countValueCurrent != this.contador){
+            this.configuration.select(this.blockElementsId.select, this.resourceCurrent.nameIcon);
+        }
     }
 
     runSetup(){
-        this.allObjectResource.forEach(objeto => {
-            if (objeto.nameIcon == this.identification.resourceIdentification()){
-                let elementDependent;
-                this.configuration.removeRestrictions();
-                if(this.validateInputDependent(objeto)){
-                    Object.values(objeto.element_configuration).forEach(element => {
-                        if (element.dependent) {
-                            elementDependent = true;
-                            this.checkElementType(element, elementDependent);
-                        }
-                        else {
-                            elementDependent = false;
-                            this.checkElementType(element, elementDependent);
-                        }
-                    });
-                    this.clickButton("id_submitbutton")
-                }
-                else{
-                    this.message.setMessageAndBuild(MESSAGE_INPUT_EMPTY, SITUATION[2]);
-                }
+        let elementDependent;
+        this.configuration.removeRestrictions();
+        this.validation.validateInputDependent(this.resourceCurrent);
+        Object.values(this.resourceCurrent.element_configuration).forEach(element => {
+            if (element.dependent) {
+                elementDependent = true;
+                this.checkElementType(element, elementDependent);
+            }
+            else {
+                elementDependent = false;
+                this.checkElementType(element, elementDependent);
             }
         });
-
-        
+        this.clickButton("id_submitbutton")
+       
     }
 
     checkElementType(element, existDependent){
@@ -193,6 +107,8 @@ class Configuration{
                 return document.getElementById(element.dependent.idElement+"Input").checked
             case "input":
                 return $("#"+element.dependent.idElement+"Input").val();
+            case "select":
+                return $("#"+element.dependent.idElement+"Select").val();
         }
     }
 

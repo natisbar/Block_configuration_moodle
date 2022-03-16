@@ -23,8 +23,12 @@ class Message {
         document.getElementById(ID_DIV_MESSAGE).innerHTML = messageToBuild;
     }
 
-    changeMessageVisibility(){
+    changeMessageVisibilityToHide(){
+        $("#"+ID_DIV_MESSAGE).hide();
+    }
 
+    changeMessageVisibilityToShow(){
+        $("#"+ID_DIV_MESSAGE).show();
     }
     
 

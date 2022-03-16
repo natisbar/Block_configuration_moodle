@@ -11,7 +11,7 @@ class Identification {
     constructor(){
     }
 
-    rolIdentification(id){
+    rolTeacherIdentification(id){
         let isTeacher = false;
         let exposedData = document.getElementById(id).innerHTML;
         let exposedDataInObj = JSON.parse(exposedData);
