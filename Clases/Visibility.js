@@ -1,8 +1,6 @@
 const ID_DESCRIPTION_RESOURCE = "id_showdescription";
 
 class Visibility{
-    identification = new Identification();
-    message = new Message();
     blockElementsId;
     unlockCompletionResourceExist;
     unlockCompletionCourseExist;

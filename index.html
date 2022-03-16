@@ -1,12 +1,5 @@
 <head>
     <link rel="stylesheet" type="text/css" href="http://localhost/testCode/styleConfigAuto.css">
-    <script src="http://localhost/testCode/Clases/Configuration.js"></script>
-    <script src="http://localhost/testCode/Clases/Identification.js"></script>
-    <script src="http://localhost/testCode/Clases/Resource.js"></script>
-    <script src="http://localhost/testCode/Clases/Message.js"></script>
-    <script src="http://localhost/testCode/Clases/Visibility.js"></script>
-    <script src="http://localhost/testCode/Clases/Validation.js"></script>
-    <script src="http://localhost/testCode/Clases/CustomError.js"></script>
 </head>
 
 <style>
@@ -34,13 +27,20 @@
     
 
 
-
+<script src="http://localhost/testCode/Clases/Configuration.js"></script>
+<script src="http://localhost/testCode/Clases/Identification.js"></script>
+<script src="http://localhost/testCode/Clases/Resource.js"></script>
+<script src="http://localhost/testCode/Clases/Message.js"></script>
+<script src="http://localhost/testCode/Clases/Visibility.js"></script>
+<script src="http://localhost/testCode/Clases/Validation.js"></script>
+<script src="http://localhost/testCode/Clases/CustomError.js"></script>
 <script>
+    
     const URL_CONFIGURATION_JSON = "http://localhost/testCode/Clases/configuration.json";
     var dataObj = {};
     var configurationJson;
     var identification = new Identification();
-    var     configuration;
+    var configuration;
 
     //Ocultar elementos de configuración
     window.addEventListener("load", async function() {
