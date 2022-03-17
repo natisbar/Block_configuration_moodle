@@ -2,6 +2,7 @@
 
 ### **Tested on Moodle 3.10.9**
 ### **Support this development 🤝 [Paypal](https://www.paypal.com/paypalme/natisbar)**
+### **Contact: natalia.barbosa3005@hotmail.com
 
 ### [ENGLISH]
 
@@ -110,7 +111,7 @@ El JSON está estructurado como un tipo de dato objeto, de la siguiente manera (
 
 Actualmente se han incorporado 4 tipos de actividades o recursos: H5P, Folder, Quiz, Page... pero ud podría seguir incorporando mas, siempre que adicione en el JSON la información necesaria, y defina el objeto en el constructor de la clase Configuration, y lo incorpore al arreglo de recursos instanciados.
 
-###Proceso de incorporación.
+### Proceso de incorporación.
 
 1. Cree un bloque HTML e incorpore en este la información del [Index.html](https://github.com/natisbar/Block_configuration_moodle/blob/master/index.html). Recuerde cambiar las url de los estilos, de los scripts y del fichero JSON.
 2. Configure el bloque. Asegurese de que sea visible en todos los espacios del curso y que no sea visible para los estudiantes.
