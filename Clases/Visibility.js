@@ -58,7 +58,7 @@ class Visibility{
             else document.getElementById(this.blockElementsId.buttonResourceConfig).style.display = SHOW_IN_FLEX;
 
             if (!this.isTeacher) {
-                var showItems = document.getElementById(ID_SHOW_CONFIGURATION_ITEMS);
+                var showItems = document.getElementById(this.blockElementsId.showConfigurationItems);
                 showItems.style.display = SHOW_IN_BLOCK;
             }
 
