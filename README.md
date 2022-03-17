@@ -8,6 +8,8 @@
 
 The purpose of this development is to establish a previous configuration for each resource through a JSON file. So that teachers or people who are not very familiar with the configuration of resources, can configure them with one click.
 
+Performance/running video: [block_configuration_moodle](https://www.loom.com/share/9caf56fcec4d4bd795662333b4a7699c)
+
 The block can identify which type of resource it is on, and build the necessary elements for configuration, which I call dependent elements:
 
 ![alt text](https://github.com/natisbar/Block_configuration_moodle/blob/master/Image/block_configuration.png?raw=true)
