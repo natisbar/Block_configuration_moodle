@@ -2,7 +2,7 @@
 
 ### **Tested on Moodle 3.10.9**
 ### **Support this development 🤝 [Paypal](https://www.paypal.com/paypalme/natisbar)**
-### **Contact: natalia.barbosa3005@hotmail.com
+### **Contact: natalia.barbosa3005@hotmail.com**
 
 ### [ENGLISH]
 
